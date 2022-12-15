@@ -9,7 +9,7 @@ const Register = ({ setAuth }) => {
       password: "",
       name: ""
     });
-  
+  //destructure and allow field inputs
     const { email, password, name } = inputs;
   
     const onChange = e =>
@@ -18,6 +18,7 @@ const Register = ({ setAuth }) => {
     const onSubmitForm = async e => {
       e.preventDefault();
       try {
+        //call register route from backend, set body and package response
         const body = { email, password, name };
         const response = await fetch(
           "http://localhost:5000/auth/register",
@@ -29,7 +30,7 @@ const Register = ({ setAuth }) => {
             body: JSON.stringify(body)
           }
         );
-        
+        //parse json response
         const parseRes = await response.json();
 
         if (parseRes.token){
@@ -45,7 +46,7 @@ const Register = ({ setAuth }) => {
             console.error(err.message);
         }
     };
-
+//input form
     return (
         <Fragment>
             <h1 className="text-center my-5">Register</h1>

@@ -36,11 +36,11 @@ const InputRequest = ({ setRequestChange }) => {
     }
     return(
         <Fragment>
-            <h1 className="text-center my-5">Input Request</h1>
+            <h1 className="text-center my-5">Enter Your Part or Transport Request</h1>
             <form className="d-flex" onSubmit={onSubmitForm}>
                 <input 
                 type="text" 
-                placeholder="add request" 
+                placeholder="Enter Your Vehicle's Year, Make, and Model and Transport or Part Request" 
                 className="form-control" 
                 value={description} 
                 onChange={e => setDescription(e.target.value)} 

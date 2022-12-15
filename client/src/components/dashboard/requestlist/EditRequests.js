@@ -25,8 +25,8 @@ const EditRequests = ({ request, setRequestsChange }) => {
       );
 
       setRequestsChange(true);
-      
-      // window.location = "/";
+      //auto refresh on edit(not working)
+      window.location = "/";
     } catch (err) {
       console.error(err.message);
     }
@@ -43,9 +43,9 @@ const EditRequests = ({ request, setRequestsChange }) => {
         Edit
       </button>
 
-      {/* 
-        id = id10
-      */}
+      {
+        
+      }
       <div
         className="modal"
         id={`id${request.request_id}`}

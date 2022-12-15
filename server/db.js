@@ -1,5 +1,7 @@
 const Pool = require('pg').Pool
 
+//define how to access and which database to access
+
 const pool = new Pool({
     user: 'postgres',
     host: 'localhost',

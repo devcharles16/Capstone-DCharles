@@ -10,11 +10,11 @@ const authorization = require('../middleware/authorization');
 router.post('/register', validInfo, async (req, res) => {
     try {
 
-        // 1. destructure the req.body (name, email, password)
+        // destructure the req.body (name, email, password)
 
         const { name, email, password } = req.body;
 
-        // 2. check if user exists (if user exist then throw error)
+        // check if user exists (if user exist then throw error, cannot register existing user)
 
         const user = await pool.query('SELECT * FROM users WHERE user_email = $1', [email]);
         
@@ -22,7 +22,7 @@ router.post('/register', validInfo, async (req, res) => {
             return res.status(401).json('User already exists');
         }
 
-        // 3. bcrypt the user password
+        // bcrypt the user password
 
         const saltRound = 10;
         const salt = await bcrypt.genSalt(saltRound);
@@ -32,9 +32,9 @@ router.post('/register', validInfo, async (req, res) => {
         // 4. enter new user inside our database
 
         const newUser = await pool.query('INSERT INTO users (user_name, user_email, user_password) VALUES ($1, $2, $3) RETURNING *', 
-        [name, email, bcryptPassword]);
+        [name, email, bcryptPassword]); //store name, email and encrypted password, not actual password and return all data back
 
-        // 5. generating our jwt token
+        // generating our jwt token/secret password in .env
 
         const token = jwtGenerator(newUser.rows[0].user_id);
 
@@ -52,11 +52,11 @@ router.post('/register', validInfo, async (req, res) => {
 router.post('/login', validInfo, async (req, res) => {
     try {
 
-        // 1. destructure the req.body
+        // destructure the req.body
 
         const { email, password } = req.body;
 
-        // 2. check if user doesn't exist (if not then we throw error)
+        // check if user doesn't exist (if not, then throw error-cannot login a user that doesn't exist)
 
         const user = await pool.query('SELECT * FROM users WHERE user_email = $1', [email]);
 
@@ -64,7 +64,7 @@ router.post('/login', validInfo, async (req, res) => {
             return res.status(401).json('Email or password is incorrect.');
         }
 
-        // 3. check if incoming password is the same as the database password
+        // check if incoming password is the same as the database password
 
         const validPassword = await bcrypt.compare(password, user.rows[0].user_password);
 
@@ -72,7 +72,7 @@ router.post('/login', validInfo, async (req, res) => {
             return res.status(401).json('Email or password is incorrect.');
         }
 
-        // 4. give them the jwt token
+        // give them the jwt token
 
         const token = jwtGenerator(user.rows[0].user_id);
 
@@ -83,8 +83,8 @@ router.post('/login', validInfo, async (req, res) => {
         res.status(500).send('Server Error');
         }
     });
-
-    router.get('/is-verify', authorization, async (req, res) => {
+    //check if token being sent is valid
+    router.get('/is-verified', authorization, async (req, res) => {
         try {
             res.json(true);
         } catch (err) {

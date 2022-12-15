@@ -2,19 +2,14 @@ const router = require('express').Router();
 const pool = require('../db');
 const authorization = require('../middleware/authorization');
 
-// all requests and name
+// get all auto requests and user name
 
 router.get('/', authorization, async(req, res) => {
     try {
-        
-        // const user = await pool.query(
-        // "SELECT user_name FROM users WHERE user_id = $1", [req.user.id]
-        // );
 
         const user = await pool.query(
             'SELECT u.user_name, t.request_id, t.description FROM users AS u LEFT JOIN requests AS t ON u.user_id = t.user_id WHERE u.user_id = $1', [req.user]
             );
-
         res.json(user.rows);
     } catch (err) {
         console.error(err.message);

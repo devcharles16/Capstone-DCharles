@@ -29,6 +29,7 @@ const Login = ({setAuth}) => {
                 },
                 body: JSON.stringify(body)
             });
+            //parse json response
 
             const parseRes = await response.json();
 
@@ -48,7 +49,7 @@ const Login = ({setAuth}) => {
             console.error(err.message);
         }
     }
-
+//login form
     return (
         <Fragment>
             <h1 className="text-center my-5">Login</h1>

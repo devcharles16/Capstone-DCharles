@@ -19,16 +19,16 @@ function App() {
   const setAuth = (boolean) => {
     setIsAuntheticated(boolean);
   };
-
+//check to see if user is still validated
   async function isAuth() {
     try {
-      const response = await fetch ('http://localhost:5000/auth/is-verify',{
+      const response = await fetch ('http://localhost:5000/auth/is-verified',{
         method: 'GET',
         headers: {token: localStorage.token}
       });
 
       const parseRes = await response.json()
-      
+      //set auth to true or false
       parseRes === true ? setIsAuntheticated(true) : setIsAuntheticated(false);
 
     } catch (err) {
@@ -39,7 +39,7 @@ function App() {
   useEffect(() => {
     isAuth()
   },[]);
-
+//switch routes, check if user is authenticated and redirect accordingly
   return (
     <Fragment>
       <Router>

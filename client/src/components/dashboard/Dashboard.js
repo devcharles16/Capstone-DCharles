@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import { toast } from 'react-toastify';
+import ArticleFeed from '../ArticleFeed';
 
 // components
 
@@ -15,6 +16,7 @@ const Dashboard = ({setAuth}) => {
 
     async function getProfile() {
         try {
+            //get token correctly and get profile data back....user_name
             const response = await fetch('http://localhost:5000/dashboard/',{
                 method: 'GET',
                 headers: { token: localStorage.token }
@@ -29,7 +31,7 @@ const Dashboard = ({setAuth}) => {
             console.error(err.message);
         }
     }
-
+//logout
     const logout = (e) => {
         e.preventDefault(); 
         localStorage.removeItem('token');
@@ -51,8 +53,14 @@ const Dashboard = ({setAuth}) => {
             </div>
             <InputRequest setrequestsChange={setrequestsChange} />
             <ListRequests allrequests={allrequests} setrequestsChange={setrequestsChange} />
+
+            <div className="jumbotron mt-5">
+        <ArticleFeed/>
         </div>
+        </div>
+        
     );
+    
 };
 
 export default Dashboard;
