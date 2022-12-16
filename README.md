@@ -109,7 +109,7 @@ You can also delete a request<br/>
 
 Dee - devone.harris@gmail.com
 
-Project Link: Coming Soon.......
+Project Link: Coming Soon.......Run locally for now
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
