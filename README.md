@@ -38,7 +38,6 @@ This is a simple user request app that will allows users to enter a request to p
 
 ### Technology Stack
 
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 
 * React[https://reactjs.org]
 * Express[https://expressjs.com]
