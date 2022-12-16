@@ -64,7 +64,7 @@ To get a local copy up and running, follow these steps:
   npm i
   ```
   
-  * cd server
+* cd server
 * npm
   ```sh
   npm i
