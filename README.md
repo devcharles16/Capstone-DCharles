@@ -50,8 +50,7 @@ This is a simple user request app that will allows users to enter a request to p
 <!-- GETTING STARTED -->
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+To get a local copy up and running, follow these steps:
 
 ### Prerequisites
  Clone the repo
