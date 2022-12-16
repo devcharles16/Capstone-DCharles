@@ -77,10 +77,10 @@ To get a local copy up and running, follow these steps:
 <!-- USAGE EXAMPLES -->
 ## How to Use App
 
-Click Register on the homepage and register by selecting an email, username and password.
-Once redirected, add some data and Add a Request
-You can then edit a request
-You can also delete a request
+Click Register on the homepage and register by selecting an email, username and password.<br/>
+Once redirected, add some data and Add a Request<br/>
+You can then edit a request<br/>
+You can also delete a request<br/>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
