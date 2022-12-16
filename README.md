@@ -1,7 +1,5 @@
 # Capstone-DCharles
 
-[![LinkedIn][linkedin-shield]][https://www.linkedin.com/in/devonecharles/]
-
 
 <!-- TABLE OF CONTENTS -->
 <details>
@@ -42,9 +40,9 @@ This is a simple user request app that will allows users to enter a request to p
 
 This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
 
-* [![React][React.js]][https://reactjs.org]
-* [![Express][Express.js]][https://expressjs.com]
-* [![PostgreSQL][PostgreSQL Database]][https://postgresql.org/]
+* React[https://reactjs.org]
+* Express[https://expressjs.com]
+* PostgreSQL Database [https://postgresql.org/]
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
