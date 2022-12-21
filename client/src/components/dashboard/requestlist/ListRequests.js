@@ -20,15 +20,6 @@ const ListRequests = ({ allrequests, setrequestsChange }) => {
         }
     }
 
-    // get request function
-    
-    // async function getrequests() {
-    //       const res = await fetch('http://localhost:5000/requests');
-
-     //   const requestArray = await res.json();
-
-     //   setrequests(requestArray);
-    // }
 
     useEffect(() => {
         setrequests(allrequests)
