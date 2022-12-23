@@ -2,6 +2,7 @@
   background-color: #007bff;
   text-align: center;
   font-weight: bold;
+  border-radius: 7px;
 }
 
 .NavBar a {
@@ -10,14 +11,16 @@
   display: inline-block;
   color: white;
   text-decoration: none;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: large;
 }
 
 .NavBar a:hover {
-  background-color: black;
+  background-color: rgb(111, 171, 243);
   color: white !important;
 }
 
 .NavBar a.active {
   font-weight: bold;
-  color: black;
+  color: rgb(58, 12, 240);
 }
