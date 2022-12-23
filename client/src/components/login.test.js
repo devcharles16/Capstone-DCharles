@@ -5,9 +5,7 @@ import Login from './Login';
 
 //smoke test
 test('renders without crashing', () => {
-    const { getByText } = render(<Login />);
-    const linkElement = getByText(/login/i);
-    expect(linkElement).toBeInTheDocument();
+    render(<Login />);
   });
 
 /*

@@ -28,7 +28,7 @@ const InputRequest = ({ setRequestChange }) => {
             setRequestChange(true);
             setDescription('');
 
-            // window.location = "/";
+             window.location = "/";
         } catch (err) {
             console.error(err.message);
         }

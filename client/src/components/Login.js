@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react';
-import { Link } from  'react-router-dom';
+import { Link, BrowserRouter as Router } from  'react-router-dom';
 import { toast } from 'react-toastify';
 
 
@@ -58,7 +58,9 @@ const Login = ({setAuth}) => {
                 <input type="password" name="password" placeholder="password" className="form-control my-3" value={password} onChange={e => onChange(e)} />
                 <button className="btn btn-primary btn-block">Submit</button>
             </form>
+            <Router>
             <Link to="/register">Register</Link>
+            </Router>
         </Fragment>
     );
 };

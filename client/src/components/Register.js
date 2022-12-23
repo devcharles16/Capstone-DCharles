@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from 'react';
-import { Link } from  'react-router-dom';
+import { Link, BrowserRouter as Router } from  'react-router-dom';
 import { toast } from 'react-toastify';
 
 
@@ -56,8 +56,9 @@ const Register = ({ setAuth }) => {
                 <input type="text" name="name" placeholder="name" className="form-control my-3" value={name} onChange={e => onChange(e)} />
                 <button className="btn btn-primary btn-block">Sign up</button>
             </form>
-            <Link to="/login">Login</Link>
-
+            <Router>
+            <Link to="/Login">Login</Link>
+            </Router>
         </Fragment>
     );
 };

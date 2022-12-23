@@ -3,7 +3,7 @@ import Articles from './articles.json';
 
 const ArticleFeed = () => {
     return (
-        <div class= "list-group">
+        <div className= "list-group">
 
             {
                 Articles && Articles.map( article => {

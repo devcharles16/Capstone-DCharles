@@ -1,6 +1,6 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import './App.css';
-import {BrowserRouter as Router, Switch, Route, Redirect, BrowserRouter} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Redirect, BrowserRouter, Switch} from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import NavBar from './components/NavBar';
@@ -47,15 +47,17 @@ function App() {
         <div className="container">
           <BrowserRouter>
            < NavBar/>
+           <Switch>
             <Route exact path= '/' render={props => !isAuthenticated ? (<Landing {...props} />) : (<Redirect to='/dashboard' />)} />
-            <Route exact path= '/login' render={props => !isAuthenticated ? (<Login {...props} setAuth={setAuth} />) : (<Redirect to='/dashboard' />)} />      
-            <Route exact path= '/register' render={props => !isAuthenticated ? (<Register {...props} setAuth={setAuth} />) : (<Redirect to='/login' />)} />
-            <Route exact path= '/dashboard' render={props => isAuthenticated ? (<Dashboard {...props} setAuth={setAuth} />) : (<Redirect to ='/login' />)} />
+            <Route exact path= '/Login' render={props => !isAuthenticated ? (<Login {...props} setAuth={setAuth} />) : (<Redirect to='/dashboard' />)} />      
+            <Route exact path= '/Register' render={props => !isAuthenticated ? (<Register {...props} setAuth={setAuth} />) : (<Redirect to='/Login' />)} />
+            <Route exact path= '/Dashboard' render={props => isAuthenticated ? (<Dashboard {...props} setAuth={setAuth} />) : (<Redirect to ='/Login' />)} />
+            </Switch>
           </BrowserRouter>
         </div>
       </Router> 
     </Fragment>
-  );
-}
+);
+};
 
 export default App;

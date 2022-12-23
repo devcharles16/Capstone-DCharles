@@ -1,7 +1,5 @@
 import React, { Fragment } from 'react';
-import { Link } from 'react-router-dom';
-import Login from './Login';
-import Register from './Register';
+import { Link, BrowserRouter as Router, Switch } from 'react-router-dom';
 
 import ArticleFeed from './ArticleFeed';
 
@@ -12,10 +10,9 @@ const Landing = () => {
 
             <h1>Welcome to Charles Vehicle Requests</h1>
             <p>Sign In to Request Parts or Vehicle Trasport</p>
-            
-            <Link to='/login' className="btn btn-primary">Login</Link>
-            <Link to='/register' className="btn btn-primary ml-3">Sign up</Link>
-            
+            <Link to='/Login' className="btn btn-primary">Login </Link>
+            <Link to='/Register' className="btn btn-primary ml-3">Sign up</Link>
+     
         </div>
 
         <div className="jumbotron mt-5">
