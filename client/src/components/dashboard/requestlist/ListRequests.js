@@ -1,19 +1,19 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import EditRequests from './EditRequests';
 
-const ListRequests = ({ allrequests, setrequestsChange }) => {
-    console.log(allrequests);
-    const [requests, setrequests] = useState([allrequests]); // empty array
+const ListRequests = ({ allRequests, setRequestsChange }) => {
+    console.log(allRequests);
+    const [requests, setRequests] = useState([allRequests]); // empty array
 
     //delete request function
 
-    async function deleterequest(id) {
+    async function deleteRequest(id) {
         try {
             await fetch (`http://localhost:5000/dashboard/requests/${id}`, {
                 method: 'DELETE',
                 headers: {token: localStorage.token}
             });
-            setrequests(requests.filter(request => request.request_id !== id));
+            setRequests(requests.filter(request => request.request_id !== id));
 
         } catch (err) {
             console.error(err.message);
@@ -22,8 +22,8 @@ const ListRequests = ({ allrequests, setrequestsChange }) => {
 
 
     useEffect(() => {
-        setrequests(allrequests)
-    }, [allrequests]);
+        setRequests(allRequests)
+    }, [allRequests]);
 
 
     console.log(requests);
@@ -44,10 +44,10 @@ const ListRequests = ({ allrequests, setrequestsChange }) => {
             requests.map(request => (
              <tr key={request.request_id}>
                  <td>{request.description}</td>
-                 <td><EditRequests request={request} setrequestsChange={setrequestsChange} /></td>
+                 <td><EditRequests request={request} setRequestsChange={setRequestsChange} /></td>
                  <td><button 
                  className="btn btn-danger"
-                 onClick={() => deleterequest(request.request_id)}>Delete</button></td>
+                 onClick={() => deleteRequest(request.request_id)}>Delete</button></td>
              </tr>
          ))
          }

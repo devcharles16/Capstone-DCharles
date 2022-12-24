@@ -1,11 +1,12 @@
 import React, { Fragment, useState } from "react";
 
 const EditRequests = ({ request, setRequestsChange }) => {
+
   const [description, setDescription] = useState(request.description);
 
   //edit description function
 
-  const updateDescription = async e => {
+  const updateDescription = async  e => {
     e.preventDefault();
     try {
       const body = { description };

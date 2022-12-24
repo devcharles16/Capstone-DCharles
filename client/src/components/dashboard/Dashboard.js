@@ -11,8 +11,8 @@ import ListRequests from './requestlist/ListRequests';
 const Dashboard = ({setAuth}) => {
 
     const [name, setName] = useState('');
-    const [allrequests, setAllrequests] = useState([]);
-    const [requestsChange, setrequestsChange] = useState(false);
+    const [allRequests, setAllRequests] = useState([]);
+    const [requestsChange, setRequestsChange] = useState(false);
 
     async function getProfile() {
         try {
@@ -24,7 +24,7 @@ const Dashboard = ({setAuth}) => {
 
             const parseRes = await response.json();
             
-            setAllrequests(parseRes);
+            setAllRequests(parseRes);
             setName(parseRes[0].user_name);
 
         } catch (err) {
@@ -42,7 +42,7 @@ const Dashboard = ({setAuth}) => {
     
     useEffect(() => {
         getProfile();
-        setrequestsChange(false);
+        setRequestsChange(false);
     },[requestsChange]);
 
     return (
@@ -51,8 +51,8 @@ const Dashboard = ({setAuth}) => {
                 <h2>Hello {name}!</h2>
                 <button className="btn btn-primary" onClick={e => logout(e)}>Logout</button>
             </div>
-            <InputRequest setrequestsChange={setrequestsChange} />
-            <ListRequests allrequests={allrequests} setrequestsChange={setrequestsChange} />
+            <InputRequest setrequestsChange={setRequestsChange} />
+            <ListRequests allRequests={allRequests} setRequestsChange={setRequestsChange} />
 
             <div className="jumbotron mt-5">
         <ArticleFeed/>
