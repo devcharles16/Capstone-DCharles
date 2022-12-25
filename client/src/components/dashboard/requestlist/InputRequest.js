@@ -40,7 +40,7 @@ const InputRequest = ({ setRequestChange }) => {
             <form className="d-flex" onSubmit={onSubmitForm}>
                 <input 
                 type="text" 
-                placeholder="Enter Your Vehicle's Year, Make, and Model and Transport or Part Request" 
+                placeholder="Enter Vehicle's Year, Make, and Model and Transport or Part Request" 
                 className="form-control" 
                 value={description} 
                 onChange={e => setDescription(e.target.value)} 

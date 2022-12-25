@@ -48,13 +48,14 @@ const Register = ({ setAuth }) => {
     };
 //input form
     return (
+      
         <Fragment>
             <h1 className="text-center my-5">Register</h1>
             <form onSubmit={onSubmitForm}>
                 <input type="email" name="email" placeholder="email" className="form-control my-3" value={email} onChange={e => onChange(e)} />
                 <input type="password" name="password" placeholder="password" className="form-control my-3" value={password} onChange={e => onChange(e)} />
                 <input type="text" name="name" placeholder="name" className="form-control my-3" value={name} onChange={e => onChange(e)} />
-                <button className="btn btn-primary btn-block">Sign up</button>
+                <button aria-label = "submit" className="btn btn-primary btn-block">Sign up</button>
             </form>
             <Router>
             <Link to="/Login">Login</Link>
